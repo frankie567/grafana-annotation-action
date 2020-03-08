@@ -1,0 +1,5 @@
+name: 'GitHub Action TypeScript template'
+description: 'Get started quickly to create your own GitHub Action with TypeScript'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
