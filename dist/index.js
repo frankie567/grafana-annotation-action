@@ -3279,30 +3279,34 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __importDefault(__webpack_require__(470));
+const core = __importStar(__webpack_require__(470));
 const grafana_1 = __webpack_require__(514);
 exports.run = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const apiHost = core_1.default.getInput('apiHost');
-        const apiToken = core_1.default.getInput('apiToken');
+        const apiHost = core.getInput('apiHost');
+        const apiToken = core.getInput('apiToken');
         const grafanaClient = new grafana_1.GrafanaClient(apiHost, apiToken);
-        const text = core_1.default.getInput('text');
-        const rawDashboardId = core_1.default.getInput('dashboardId');
-        const rawPanelId = core_1.default.getInput('panelId');
-        const rawTags = core_1.default.getInput('tags');
+        const text = core.getInput('text');
+        const rawDashboardId = core.getInput('dashboardId');
+        const rawPanelId = core.getInput('panelId');
+        const rawTags = core.getInput('tags');
         const dashboardId = rawDashboardId ? Number.parseInt(rawDashboardId, 10) : undefined;
         const panelId = rawPanelId ? Number.parseInt(rawPanelId, 10) : undefined;
         const tags = rawTags ? rawTags.split(',') : undefined;
         const time = Date.now();
         const annotationId = yield grafanaClient.createAnnotation(text, time, dashboardId, panelId, tags);
-        core_1.default.info(`Created annotation ${annotationId}`);
+        core.info(`Created annotation ${annotationId}`);
     }
     catch (error) {
-        core_1.default.setFailed(error.message);
+        core.setFailed(error.message);
     }
 });
 exports.run();
