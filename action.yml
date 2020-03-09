@@ -1,5 +1,31 @@
-name: 'GitHub Action TypeScript template'
-description: 'Get started quickly to create your own GitHub Action with TypeScript'
+name: 'Add Grafana annotation'
+author: 'François Voron'
+description: 'Add a Grafana annotation to your dashboards during your deployment'
+
+inputs:
+  apiHost:
+    description: 'Grafana API host'
+    required: true
+  apiToken:
+    description: 'Grafana API token'
+    required: true
+  text:
+    description: 'Text of the annotation'
+    required: true
+  dashboardId:
+    description: 'Id. of the dashboard to add the annotation on. If not provided, will be global to all dashboards.'
+    required: false
+  panelId:
+    description: 'Id. of the panel to add the annotation on. If not provided, will be global to all panels.'
+    required: false
+  tags:
+    description: 'Comma-separated list of tags assigned to the annotation.'
+    required: false
+
 runs:
   using: 'node12'
   main: 'dist/index.js'
+
+branding:
+  icon: 'bar-chart-2'
+  color: 'orange'

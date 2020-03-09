@@ -13,3 +13,19 @@ jobs:
     - uses: actions/checkout@v1
     - run: npm ci
     - run: npm test
+
+  test-action:
+    strategy:
+      matrix:
+        action: [save, merge]
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: ./
+      with:
+        apiHost: ${{ secrets.GRAFANA_API_HOST }}
+        apiToken: ${{ secrets.GRAFANA_API_TOKEN }}
+        text: Test annotation for ${{github.sha}}
+        dashboardId: 2
+        tags: test1,test2
