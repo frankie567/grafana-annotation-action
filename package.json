@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint index.ts",
     "package": "ncc build index.ts -o dist",
-    "test": "npm run lint && jest"
+    "test": "npm run lint && jest --coverage"
   },
   "repository": {
     "type": "git",
