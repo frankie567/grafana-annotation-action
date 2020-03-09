@@ -15,10 +15,6 @@ jobs:
     - run: npm test
 
   test-action:
-    strategy:
-      matrix:
-        action: [save, merge]
-
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
