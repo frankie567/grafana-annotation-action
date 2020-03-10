@@ -1,27 +1,35 @@
-# GitHub Action TypeScript template
+# Grafana annotation action
 
 <p align="center">
-  <a href="https://github.com/BeeMyDesk/github-action-typescript-template/actions"><img alt="status" src="https://github.com/BeeMyDesk/github-action-typescript-template/workflows/units-test/badge.svg"></a>
+  <a href="https://github.com/frankie567/grafana-annotation-action/actions"><img alt="status" src="https://github.com/frankie567/grafana-annotation-action/workflows/units-test/badge.svg"></a>
 </p>
 
-Get started quickly to create your own GitHub Action with TypeScript.
+Add a Grafana annotation to your dashboards during your deployment with this GitHub Action.
 
-## Getting started
+![Grafana annotation result on a dashboard](/screenshot.png?raw=true)
 
-1. [Generate your repository](https://github.com/BeeMyDesk/github-action-typescript-template/generate) from this template.
-2. Clone your repository
-3. Install dependencies: `npm i`
-4. Happy coding!
+## Usage
 
-## Release a version
-
-You can rely on the `npm release` command. It will automatically bump your version and generate a Git tag:
-
+```yaml
+steps:
+- uses: frankie567/grafana-annotation-action@v1.0.0
+  with:
+    apiHost: https://myinstance.grafana.net
+    apiToken: ${{ secrets.GRAFANA_API_TOKEN }}
+    text: Deployment of ${{ github.sha }}
+    dashboardId: 1
+    tags: deployment,github
 ```
-npm release major
-git push && git push --tags
-```
+
+### Parameters
+
+* `apiHost` (**REQUIRED**): Grafana API host.
+* `apiToken` (**REQUIRED**): Grafana API token. [How to create an API token ?](https://grafana.com/docs/grafana/latest/http_api/auth/#create-api-token).
+* `text` (**REQUIRED**): Text of the annotation.
+* `dashboardId` (**OPTIONAL**): Id. of the dashboard to add the annotation on. If not provided, will be global to all dashboards.
+* `panelId` (**OPTIONAL**): Id. of the panel to add the annotation on. If not provided, will be global to all panels.
+* `tags` (**OPTIONAL**): Comma-separated list of tags assigned to the annotation.
 
 ## License
 
-[MIT License](https://github.com/BeeMyDesk/github-action-typescript-template/blob/master/LICENSE)
+[MIT License](https://github.com/frankie567/grafana-annotation-action/blob/master/LICENSE)
