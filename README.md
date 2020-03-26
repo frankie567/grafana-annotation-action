@@ -12,7 +12,7 @@ Add a Grafana annotation to your dashboards during your deployment with this Git
 
 ```yaml
 steps:
-- uses: frankie567/grafana-annotation-action@v1.0.0
+- uses: frankie567/grafana-annotation-action@v1.0.2
   with:
     apiHost: https://myinstance.grafana.net
     apiToken: ${{ secrets.GRAFANA_API_TOKEN }}
