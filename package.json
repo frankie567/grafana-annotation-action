@@ -1,6 +1,6 @@
 {
   "name": "grafana-annotation-action",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Add a Grafana annotation to your dashboards during your deployment with this GitHub Action",
   "main": "dist/index.js",
   "scripts": {
