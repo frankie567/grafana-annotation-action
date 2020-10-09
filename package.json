@@ -1,7 +1,7 @@
 {
-  "name": "github-action-typescript-template",
+  "name": "grafana-annotation-action",
   "version": "1.0.2",
-  "description": "Get started quickly to create your own GitHub Action with TypeScript",
+  "description": "Add a Grafana annotation to your dashboards during your deployment with this GitHub Action",
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint index.ts",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BeeMyDesk/github-action-typescript-template.git"
+    "url": "git+https://github.com/frankie567/grafana-annotation-action.git"
   },
   "keywords": [
     "GitHub",
@@ -21,26 +21,26 @@
   "author": "François Voron",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/BeeMyDesk/github-action-typescript-template/issues"
+    "url": "https://github.com/frankie567/grafana-annotation-action/issues"
   },
-  "homepage": "https://github.com/BeeMyDesk/github-action-typescript-template#readme",
+  "homepage": "https://github.com/frankie567/grafana-annotation-action#readme",
   "dependencies": {
-    "@actions/core": "^1.2.3",
-    "axios": "^0.19.2"
+    "@actions/core": "^1.2.6",
+    "axios": "^0.20.0"
   },
   "devDependencies": {
-    "@types/jest": "^25.1.4",
-    "@types/node": "^13.9.4",
-    "@typescript-eslint/eslint-plugin": "^2.25.0",
-    "@typescript-eslint/parser": "^2.25.0",
-    "@zeit/ncc": "^0.22.0",
-    "acorn": ">=7.1.1",
-    "eslint": "^6.8.0",
-    "husky": "^4.2.3",
-    "jest": "^25.2.0",
+    "@types/jest": "^26.0.14",
+    "@types/node": "^14.11.7",
+    "@typescript-eslint/eslint-plugin": "^4.4.0",
+    "@typescript-eslint/parser": "^4.4.0",
+    "@vercel/ncc": "^0.24.1",
+    "acorn": "^8.0.4",
+    "eslint": "^7.10.0",
+    "husky": "^4.3.0",
+    "jest": "^26.5.2",
     "minimist": ">=1.2.2",
-    "ts-jest": "^25.2.1",
-    "typescript": "^3.8.3"
+    "ts-jest": "^26.4.1",
+    "typescript": "^4.0.3"
   },
   "husky": {
     "hooks": {
