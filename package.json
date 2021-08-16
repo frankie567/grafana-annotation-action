@@ -26,7 +26,8 @@
   "homepage": "https://github.com/frankie567/grafana-annotation-action#readme",
   "dependencies": {
     "@actions/core": "^1.2.6",
-    "axios": "^0.20.0"
+    "axios": "^0.20.0",
+    "retry-axios": "^2.5.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.14",
