@@ -66,3 +66,6 @@ typings/
 
 # OS garbage
 .DS_Store
+
+# act
+/.act*
