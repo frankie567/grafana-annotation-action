@@ -8,20 +8,26 @@ on:
 
 jobs:
   units:
+    if: ${{ ! github.event._SKIPTEST }}
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4
     - run: npm ci
     - run: npm test
 
   test-action:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - if: ${{ ! env.ACT }}
+      run: |      
+        echo "GRAFANA_API_HOST=${{ vars.GRAFANA_API_HOST }}" >> $GITHUB_ENV
+        echo "GRAFANA_DASHID=${{ vars.GRAFANA_DASHID }}" >> $GITHUB_ENV
+
+    - uses: actions/checkout@v4
     - uses: ./
       with:
-        apiHost: ${{ secrets.GRAFANA_API_HOST }}
+        apiHost: ${{ env.GRAFANA_API_HOST }}
         apiToken: ${{ secrets.GRAFANA_API_TOKEN }}
         text: Test annotation for ${{github.sha}}
-        dashboardId: 2
-        tags: test1,test2
+        dashboardId: ${{ env.GRAFANA_DASHID }}
+        tags: test1,test2,deployment,staging
