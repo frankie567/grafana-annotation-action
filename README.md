@@ -33,3 +33,4 @@ steps:
 ## License
 
 [MIT License](https://github.com/frankie567/grafana-annotation-action/blob/master/LICENSE)
+
